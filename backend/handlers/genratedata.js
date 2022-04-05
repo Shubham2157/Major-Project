@@ -27,9 +27,15 @@ module.exports = () => {
 
     fs.readFile('./static/data.json', (err, data)=>{
         var json = JSON.parse(data)
+        var newIndex
+        if(json.length>0){
+            newIndex = json[json.length - 1].entry_id + 1
+        } else{
+            newIndex = 1;
+        }
         json.push({
             "created_at": new Date().toLocaleString(),
-            "entry_id": json[json.length - 1].entry_id + 1,
+            "entry_id": newIndex,
             "field1": temp,
             "field2": heartBeat
         })
