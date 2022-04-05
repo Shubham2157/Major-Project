@@ -1,0 +1,22 @@
+{
+  "name": "health-monitoring-system-backend",
+  "version": "1.0.0",
+  "description": "backend codebase of our major project, topic health monitoring system",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "health",
+    "cron"
+  ],
+  "author": "Shubham Kumar Jha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "node-cron": "^3.0.0"
+  }
+}
