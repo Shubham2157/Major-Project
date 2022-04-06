@@ -34,10 +34,10 @@ module.exports = () => {
             newIndex = 1;
         }
         json.push({
-            "created_at": new Date().toLocaleString(),
             "entry_id": newIndex,
             "field1": temp,
-            "field2": heartBeat
+            "field2": heartBeat,
+            "created_at": new Date().toLocaleString()
         })
         fs.writeFile('./static/data.json', JSON.stringify(json), (err)=>{
             if(err){

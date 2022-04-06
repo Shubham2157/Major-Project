@@ -26,6 +26,16 @@ app.get('/', function (req, res) {
 app.get('/api', (req, res)=> {
     fs.readFile('./static/data.json', (err, data)=>{
         const object = JSON.parse(data)
+        var created_at, updated_at, last_entry_id;
+        if(object.length>0){
+            created_at = object[0].created_at
+            updated_at = object[object.length - 1].created_at
+            last_entry_id = object[object.length - 1].entry_id
+        } else{
+            created_at = 'NA',
+            updated_at = 'NA',
+            last_entry_id = 'NA'
+        }
         res.json(
             {
                 "channel": {
@@ -36,9 +46,9 @@ app.get('/api', (req, res)=> {
                     "longitude": long,
                     "field1": "Pulse Rate in BPM",
                     "field2": "Temperatuer in F",
-                    "created_at": object[0].created_at,
-                    "updated_at": object[object.length - 1].created_at,
-                    "last_entry_id": object[object.length - 1].entry_id
+                    "created_at": created_at,
+                    "updated_at": updated_at,
+                    "last_entry_id": last_entry_id
                   },
                 "feeds": JSON.parse(data)
             })
