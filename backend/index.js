@@ -47,8 +47,8 @@ app.get('/api', (req, res)=> {
                     "description": "Netduino Plus connected to sensors around the house",
                     "latitude": lat,
                     "longitude": long,
-                    "field1": "Pulse Rate in BPM",
-                    "field2": "Temperatuer in F",
+                    "field1": "Temperatuer in F",
+                    "field2": "Pulse Rate in BPM",
                     "created_at": created_at,
                     "updated_at": updated_at,
                     "last_entry_id": last_entry_id
