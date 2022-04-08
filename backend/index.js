@@ -1,31 +1,29 @@
-// cron jobs for regular(dummy) data for our project
-const config = require('./config')
-const scheduler = require('./scheduler')
-
-scheduler.initCrons(config)
-
-
-// setup api endpoint for front-end
+// server ----
 const express = require('express')
-const app = express()
-var cors = require('cors')
+const cors = require('cors')
+
 const utils = require('./utils')
 const mapendpoint = require('./utils/mapendpoint')
+const invalidendpoint = require('./utils/invalidendpoint')
+const apiendpoint = require('./utils/apiendpoint')
 
+const cronjobscript = require('./cronjobscript')
+// cron job script runner
+cronjobscript()
+
+const app = express()
 app.use(cors())
 
 const lat = 26.348900
 const long = 86.077103
 
+// setup api endpoint for front-end
 app.get('/', function (req, res) {
-    res.send({
-        message: "ok",
-        status: 200
-    })
+    utils(req,res)
 })
     
 app.get('/api', (req, res)=> {
-       utils(req, res, lat, long)
+    apiendpoint(req, res, lat, long)
 })
 
 app.get('/api/map', (req, res) => {
@@ -33,11 +31,7 @@ app.get('/api/map', (req, res) => {
 })
 
 app.get('*', (req, res)=>{
-    res.json({
-        "message": "Sorry!!! This is not valid endpoint",
-        "status": "Cool!!",
-        "code": 200
-    })
+    invalidendpoint(req, res)
 })
 
 
