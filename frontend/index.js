@@ -3,7 +3,7 @@ var tab = document.getElementById('mytable').getElementsByTagName('tbody')[0]
 
 console.log(tab);
 
-var url = 'http://localhost:5000/api'
+var url = 'https://shubham2157.github.io/Major-Project/api/data.json'
 
 fetch(url).then(function(response) {
     return response.json();
