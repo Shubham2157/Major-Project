@@ -8,7 +8,7 @@ module.exports = {
         handler: "handlers/goodbye"
     },
     generatedata: {
-        frequency: "* * * * *",
+        frequency: "*/10 * * * *",
         handler: "handlers/genratedata"
     }
 }

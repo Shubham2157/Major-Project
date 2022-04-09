@@ -2,19 +2,19 @@ module.exports = () => {
     console.log("Script Loading ......");
 
     // generate 2 random number
-    const minTemp = 20;
-    const maxTemp = 30;
+    const minTemp = 97;
+    const maxTemp = 99;
 
     // generating a random number
-    const temp = Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
+    const temp = (Math.random() * (maxTemp - minTemp + 1) + minTemp).toFixed(1);
 
     // display a random number
     console.log(`Random Temp value between ${minTemp} and ${maxTemp} is ${temp}`);
 
 
     // generate 2 random number
-    const minHeart = 30;
-    const maxHeart = 40;
+    const minHeart = 66;
+    const maxHeart = 72;
 
     // generating a random number
     const heartBeat = Math.floor(Math.random() * (maxHeart - minHeart + 1)) + minHeart; 
