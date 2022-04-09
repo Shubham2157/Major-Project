@@ -18,10 +18,3 @@ fetch(url).then(function(response) {
   }).catch(function() {
     console.log("Booo");
   });
-
-
-
-  function sendtomain (){
-   location.href = "./main";
-   return;
-  }
